@@ -1,5 +1,14 @@
 import React, { useEffect, useState } from "react";
+/* 
+todo
+change from a useEffect to a button call to fetch data
+1. remove unnecessary chaining
+2. convert functions to promise.all - add await to the Promise.all
+3. remove global variables and change to  state
+4. add a UI that somewhat resembles kevins
+5. utilize CSS animations 
 
+*/
 export const List = () => {
   const [loading, setLoading] = useState(false);
   //change to state
@@ -101,7 +110,7 @@ export const List = () => {
     const res = await fetch(
       `http://api.coxauto-interview.com/api/${dataSet}/answer`,
       {
-        method: "POST", // or 'PUT'
+        method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
