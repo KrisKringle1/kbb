@@ -1,6 +1,10 @@
 # KBB Demo App
 Fetches Data from the Demo API Link
+
+
 Using functions.js the data is then organized, parsed, and posted to the demo API
+
+
 React then displays the state of the loading process, results of the answer response, and displays the Dealers and Cars that were sent to the answer API
 
 
