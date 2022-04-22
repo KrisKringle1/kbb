@@ -78,29 +78,33 @@ export const getDealerInfo = async (dealerId) => {
 //constructs the final object and posts it to the end point
 export const constructReq = (dealers, cars, returnArr = []) => {
   //dealer construction
-  for (const index in dealers) {
-    const dealer = dealers[index];
+
+  Object.keys(dealers).map((dealer) => {
     //construction object to meet POST requirement
-    const dealerObj = {};
-    dealerObj.dealerId = dealer.dealerId;
-    dealerObj.name = dealer.name;
-    dealerObj.vehicles = [];
+    const dealerObj = {
+      dealerId: dealer.dealerId,
+      name: dealer.name,
+      vehicles: [],
+    };
     //car construction
-    for (const index in cars) {
-      const car = cars[index];
+    Object.keys(cars).map((car) => {
       if (car.dealerId === dealerObj.dealerId) {
-        const obj = {};
-        obj.vehicleId = car.vehicleId;
-        obj.year = car.year;
-        obj.make = car.make;
-        obj.model = car.model;
+        const obj = {
+          vehicleId: car.vehicleId,
+          year: car.year,
+          make: car.make,
+          model: car.model,
+        };
+
         dealerObj.vehicles.push(obj);
       }
-    }
+    });
+
     //pushed the dealer object into the dealer array
     //return this object
     returnArr.push(dealerObj);
-  }
+  });
+
   return returnArr;
 };
 
