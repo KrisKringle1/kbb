@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
-import { Button, AppContainer, FlexContainer } from "./styled-components";
-import { Header } from "./components/Header";
-import { DealersView } from "./components/DealersView";
+import { AppContainer } from "./styled-components";
+import { Header } from "./components/Header/Header";
+import { DealersView } from "./components/Dealers/DealersView";
 import "./App.css";
 const functions = require("./functions");
 
@@ -39,7 +39,6 @@ function App() {
       functions.getVehicleIds(dataSet).then((res) => {
         setRetrievedIds(true);
         functions.batchRequest(res.vehicleIds, res.dataSet).then((response) => {
-          console.log("final res ", response);
           setCars(response.cars);
           setCarDealers(response.dealers);
           setAnswer(response.answer);

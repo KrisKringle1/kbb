@@ -8,7 +8,6 @@ export const getDataSet = async () => {
     },
   });
   const data = await res.json();
-  console.log("data set ", data);
   dataSet = data.datasetId;
   return dataSet;
 };
@@ -56,7 +55,6 @@ export const getVehicleInfo = async (vehicleId, dealerIds, returnDealers) => {
     `http://api.coxauto-interview.com/api/${dataSet}/vehicles/${vehicleId}`
   );
   const data = await res.json();
-  console.log("vehicle info ", data);
   //change to state
 
   const dealer = await dealerConstructor(data, dealerIds);
@@ -74,7 +72,6 @@ export const getDealerInfo = async (dealerId) => {
     `http://api.coxauto-interview.com/api/${dataSet}/dealers/${dealerId}`
   );
   const data = await res.json();
-  console.log("dealer info ", data);
   return data;
 };
 
@@ -102,10 +99,8 @@ export const constructReq = (dealers, cars, returnArr = []) => {
     }
     //pushed the dealer object into the dealer array
     //return this object
-    console.log("dealer object ", dealerObj);
     returnArr.push(dealerObj);
   }
-  console.log("return arr ", returnArr);
   return returnArr;
 };
 
@@ -123,16 +118,5 @@ export const postDataInfo = async (finalDealers) => {
 
   const data = await res.json();
 
-  console.log("answer post ", data);
-
   return data;
 };
-
-// const testFunctions = {
-//   getDataSet,
-//   getVehicleIds,
-//   dealerConstructor,
-//   getDealerInfo,
-//   constructReq,
-//   postDataInfo,
-// };

@@ -1,9 +1,7 @@
 import React from "react";
-import { CarContainer } from "../styled-components";
-import { FadeIn } from "../styled-components";
+import { CarContainer, FadeIn } from "../../styled-components";
 
 export const Car = ({ car }) => {
-  console.log("car ", car);
   return (
     <FadeIn>
       <CarContainer>

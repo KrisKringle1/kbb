@@ -1,6 +1,5 @@
 //gets the data set and returns it
 const getDataSet = async () => {
-  console.log("data set");
   const res = await fetch("http://api.coxauto-interview.com/api/datasetId", {
     headers: {
       "Content-Type": "application/json",
@@ -28,7 +27,6 @@ const getVehicleIds = async (dataSet) => {
 
 //Promise.all that requests all of the vehicle information, returns final object to update state
 const batchRequest = async (vehicleIds, dataSet) => {
-  console.log("batch request");
   //variables passed down into lower functions to keep track of what dealers need to be queried and returned
   const dealers = [];
   const dealerIds = {};
@@ -45,7 +43,6 @@ const batchRequest = async (vehicleIds, dataSet) => {
 //gets the vehicle info and then adds it to the car array
 //once a single car is fetched, it calls dealerConstructor to begin fetching dealer info per car
 const getVehicleInfo = async (vehicleId, dealerIds, dealers, dataSet) => {
-  console.log("info ");
   const res = await fetch(
     `http://api.coxauto-interview.com/api/${dataSet}/vehicles/${vehicleId}`
   );
@@ -116,7 +113,6 @@ const postDataInfo = async (finalDealers, dataSet) => {
     }
   );
   const data = await res.json();
-  console.log("answer ", data);
   return data;
 };
 

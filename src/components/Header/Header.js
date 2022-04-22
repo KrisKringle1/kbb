@@ -1,10 +1,10 @@
 import React, { useState } from "react";
-import { HeaderContainer, Title, Heading } from "../styled-components";
-import { DataContainer } from "../styled-components";
-import { Button } from "../styled-components";
-import { ButtonSpan } from "../styled-components";
-import { FlexContainer } from "../styled-components";
-import { ListItem } from "../styled-components";
+import { HeaderContainer, Title, Heading } from "../../styled-components";
+import { DataContainer } from "../../styled-components";
+import { Button } from "../../styled-components";
+import { ButtonSpan } from "../../styled-components";
+import { FlexContainer } from "../../styled-components";
+import { ListItem } from "../../styled-components";
 import { BsFillCheckCircleFill } from "react-icons/bs";
 
 import { css } from "@emotion/react";
@@ -27,7 +27,6 @@ export const Header = ({
   carDealers,
 }) => {
   let [color, setColor] = useState("#ffffff");
-  console.log("final request ", loading);
 
   return (
     <Heading>

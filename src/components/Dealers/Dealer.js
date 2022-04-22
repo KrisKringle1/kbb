@@ -1,7 +1,6 @@
 import React from "react";
-import { DealerContainer } from "../styled-components";
-import { Car } from "./Car";
-import { FadeIn } from "../styled-components";
+import { Car } from "../Cars/Car";
+import { FadeIn, DealerContainer } from "../../styled-components";
 export const Dealer = ({ dealer }) => {
   const cars = dealer.vehicles.map((car) => (
     <FadeIn key={car.vehicleId}>

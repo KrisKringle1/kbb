@@ -20,7 +20,6 @@ export const Indicators = ({
   finalRequest,
   carDealers,
 }) => {
-  console.log();
   let [color, setColor] = useState("#ffffff");
 
   const override = css`
