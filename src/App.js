@@ -34,6 +34,7 @@ function App() {
   */
   useEffect(() => {
     //bug fix for multiple renders
+
     if (isMounted.current && fetched) {
       setLoading(true);
       functions.getVehicleIds(dataSet).then((res) => {

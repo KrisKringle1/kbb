@@ -12,6 +12,9 @@ const getDataSet = async () => {
 
 //gets the vehicle ids and returns the IDs and dataSet to continue the chain
 const getVehicleIds = async (dataSet) => {
+  if (!dataSet) {
+    return;
+  }
   const res = await fetch(
     `http://api.coxauto-interview.com/api/${dataSet}/vehicles`,
     {
@@ -27,6 +30,9 @@ const getVehicleIds = async (dataSet) => {
 
 //Promise.all that requests all of the vehicle information, returns final object to update state
 const batchRequest = async (vehicleIds, dataSet) => {
+  if (!vehicleIds) {
+    return;
+  }
   //variables passed down into lower functions to keep track of what dealers need to be queried and returned
   const dealers = [];
   const dealerIds = {};
@@ -78,19 +84,22 @@ const constructReq = (dealers, cars, returnArr = []) => {
   for (const index in dealers) {
     const dealer = dealers[index];
     //construction object to meet POST requirement
-    const dealerObj = {};
-    dealerObj.dealerId = dealer.dealerId;
-    dealerObj.name = dealer.name;
-    dealerObj.vehicles = [];
+    const dealerObj = {
+      dealerId: dealer.dealerId,
+      name: dealer.name,
+      vehicles: [],
+    };
     //car construction
     for (const index in cars) {
       const car = cars[index];
       if (car.dealerId === dealerObj.dealerId) {
-        const obj = {};
-        obj.vehicleId = car.vehicleId;
-        obj.year = car.year;
-        obj.make = car.make;
-        obj.model = car.model;
+        const obj = {
+          vehicleId: car.vehicleId,
+          year: car.year,
+          make: car.make,
+          model: car.model,
+        };
+
         dealerObj.vehicles.push(obj);
       }
     }
