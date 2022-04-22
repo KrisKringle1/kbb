@@ -1,5 +1,3 @@
-let dataSet;
-
 //gets the data set and sets it to state
 export const getDataSet = async () => {
   const res = await fetch("http://api.coxauto-interview.com/api/datasetId", {
