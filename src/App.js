@@ -38,7 +38,7 @@ function App() {
     if (isMounted.current && fetched) {
       setLoading(true);
       functions.getVehicleIds(dataSet).then((res) => {
-        //fixes rendering problem
+        //fixes rendering problem that was trying to fetch without a data set causing a 500 on 2nd button press
         if (!res) return;
         setRetrievedIds(true);
         functions.batchRequest(res.vehicleIds, res.dataSet).then((response) => {
