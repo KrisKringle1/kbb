@@ -8,12 +8,12 @@ import { ListItem } from "../styled-components";
 import { BsFillCheckCircleFill } from "react-icons/bs";
 
 import { css } from "@emotion/react";
-import PacmanLoader from "react-spinners/PacmanLoader";
+import PuffLoader from "react-spinners/PuffLoader";
 
 // Can be a string as well. Need to ensure each key-value pair ends with ;
 const override = css`
   display: inline-block;
-  margin: 7px;
+  margin-right: 3px;
   border-color: red;
 `;
 
@@ -28,6 +28,7 @@ export const Header = ({
 }) => {
   let [color, setColor] = useState("#ffffff");
   console.log("final request ", loading);
+
   return (
     <Heading>
       <HeaderContainer>
@@ -36,96 +37,109 @@ export const Header = ({
           <DataContainer>
             <ul style={{ marginBottom: "30px" }}>
               <FlexContainer>
+                {dataSet ? (
+                  <BsFillCheckCircleFill
+                    style={{ marginRight: "3px", color: "green" }}
+                  />
+                ) : (
+                  <PuffLoader
+                    color={color}
+                    loading={loading}
+                    css={override}
+                    size={15}
+                  />
+                )}
                 <ListItem className={dataSet ? "bold" : ""}>
-                  Retreived Dataset ID:
-                  {dataSet ? (
-                    " " + dataSet
-                  ) : (
-                    <PacmanLoader
-                      color={color}
-                      loading={true}
-                      css={override}
-                      size={12}
-                    />
-                  )}
+                  Retreived Dataset ID
                 </ListItem>
               </FlexContainer>
-              <ListItem className={retrievedIds ? "bold" : ""}>
-                Retrieved Vehicle IDs:
+              <FlexContainer>
                 {retrievedIds ? (
                   <BsFillCheckCircleFill
-                    style={{ margin: "auto 20px", color: "green" }}
+                    style={{ marginRight: "3px", color: "green" }}
                   />
                 ) : (
-                  <PacmanLoader
+                  <PuffLoader
                     color={color}
-                    loading={true}
+                    loading={loading}
                     css={override}
-                    size={12}
+                    size={15}
                   />
                 )}
-              </ListItem>
-              <ListItem className={carDealers.length ? "bold" : ""}>
-                Retreived Dealer Names
+                <ListItem className={retrievedIds ? "bold" : ""}>
+                  Retrieved Vehicle IDs
+                </ListItem>
+              </FlexContainer>
+              <FlexContainer>
                 {carDealers.length ? (
                   <BsFillCheckCircleFill
-                    style={{ margin: "auto 20px", color: "green" }}
+                    style={{ marginRight: "3px", color: "green" }}
                   />
                 ) : (
-                  <PacmanLoader
+                  <PuffLoader
                     color={color}
-                    loading={true}
+                    loading={loading}
                     css={override}
-                    size={12}
+                    size={15}
                   />
                 )}
-              </ListItem>
+                <ListItem className={carDealers.length ? "bold" : ""}>
+                  Retreived Dealer Names
+                </ListItem>
+              </FlexContainer>
               <ListItem className={finalRequest.length ? "bold" : ""}>
-                Data Constructed
                 {finalRequest.length ? (
                   <BsFillCheckCircleFill
-                    style={{ margin: "auto 20px", color: "green" }}
+                    style={{ marginRight: "3px", color: "green" }}
                   />
                 ) : (
-                  <PacmanLoader
+                  <PuffLoader
                     color={color}
-                    loading={true}
+                    loading={loading}
                     css={override}
-                    size={12}
+                    size={15}
                   />
                 )}
+                Data Constructed
               </ListItem>
               <ListItem className={answer.success ? "bold" : ""}>
-                Answer Posted Correctly
                 {answer.success ? (
                   <BsFillCheckCircleFill
-                    style={{ margin: "auto 20px", color: "green" }}
+                    style={{ marginRight: "3px", color: "green" }}
                   />
                 ) : (
-                  <PacmanLoader
+                  <PuffLoader
                     color={color}
-                    loading={true}
+                    loading={loading}
                     css={override}
-                    size={12}
+                    size={15}
                   />
                 )}
+                Answer Posted Correctly
               </ListItem>
               <ListItem className={answer.totalMilliseconds ? "bold" : ""}>
-                Answer Time:
                 {answer.totalMilliseconds ? (
-                  " " + answer.totalMilliseconds / 1000 + " seconds"
+                  <BsFillCheckCircleFill
+                    style={{ marginRight: "3px", color: "green" }}
+                  />
                 ) : (
-                  <PacmanLoader
+                  <PuffLoader
                     color={color}
-                    loading={true}
+                    loading={loading}
                     css={override}
-                    size={12}
+                    size={15}
                   />
                 )}
+                Answer Time:
+                {answer.totalMilliseconds
+                  ? " " + answer.totalMilliseconds / 1000 + " seconds"
+                  : " 0.000 seconds"}
               </ListItem>
             </ul>
             <Button onClick={getAllData} disabled={loading}>
-              <ButtonSpan>Fetch Me</ButtonSpan>
+              <ButtonSpan>
+                <strong>Fetch Me</strong>
+              </ButtonSpan>
             </Button>
           </DataContainer>
         </div>

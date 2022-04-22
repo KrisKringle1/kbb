@@ -12,7 +12,7 @@ export const DataContainer = styled.div`
   margin: 20px 10px;
   box-shadow: 0 3px 5px rgba(0, 0, 0, 0.6);
   padding: 15px 20px;
-  min-width: 900px;
+  min-width: 500px;
 `;
 
 export const JustifyContent = styled.div`
@@ -35,12 +35,17 @@ export const DealerViewContainer = styled.div`
   flex-wrap: wrap;
 `;
 
+export const ListContainer = styled.div`
+  display: flex;
+`;
+
 export const FlexContainer = styled.div`
   display: flex;
   align-items: center;
 `;
 
 export const Title = styled.h1`
+  margin-top: 15px;
   margin-bottom: 15px;
   font-size: 3rem;
   font-weight: bold;
@@ -84,6 +89,7 @@ export const ButtonSpan = styled.span`
 `;
 
 export const Heading = styled.header`
+  margin-top: 30px;
   background-color: #0151cc;
   color: white;
   border-radius: 10px;
@@ -165,4 +171,5 @@ const Wrapper = styled.div`
 export const ListItem = styled.li`
 margin-top: 50px
 margin-bottom: 10px
+
 `;

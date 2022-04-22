@@ -7,6 +7,7 @@ const functions = require("./functions");
 
 function App() {
   const [loading, setLoading] = useState(false);
+  const [fetched, setFetched] = useState(false);
   const [finalRequest, setFinalRequest] = useState([]);
   const [dataSet, setDataSet] = useState(null);
   const [retrievedIds, setRetrievedIds] = useState(false);
@@ -24,6 +25,7 @@ function App() {
       setCars([]);
       setCarDealers([]);
     }
+    setFetched(true);
     await functions.getDataSet().then((response) => setDataSet(response));
   };
 
@@ -32,7 +34,7 @@ function App() {
   */
   useEffect(() => {
     //bug fix for multiple renders
-    if (isMounted.current) {
+    if (isMounted.current && fetched) {
       setLoading(true);
       functions.getVehicleIds(dataSet).then((res) => {
         setRetrievedIds(true);
@@ -43,6 +45,7 @@ function App() {
           setAnswer(response.answer);
           setFinalRequest(response.request);
           setLoading(false);
+          setFetched(false);
         });
       });
     } else {
