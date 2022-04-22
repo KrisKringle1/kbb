@@ -38,6 +38,8 @@ function App() {
     if (isMounted.current && fetched) {
       setLoading(true);
       functions.getVehicleIds(dataSet).then((res) => {
+        //fixes rendering problem
+        if (!res) return;
         setRetrievedIds(true);
         functions.batchRequest(res.vehicleIds, res.dataSet).then((response) => {
           setCars(response.cars);
