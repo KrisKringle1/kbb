@@ -1,15 +1,13 @@
 import React, { useState } from "react";
-import { BsFillCheckCircleFill } from "react-icons/bs";
 import { css } from "@emotion/react";
-import PuffLoader from "react-spinners/PuffLoader";
+import { DataSet } from "./DataSet";
+import { VehicleIds } from "./VehicleIds";
+import { CarDealers } from "./CarDealers";
+import { DataConstructed } from "./DataConstructed";
+import { Answer } from "./Answer";
+import { AnswerTime } from "./AnswerTime";
 
-import {
-  FlexContainer,
-  ListItem,
-  DataContainer,
-  Button,
-  ButtonSpan,
-} from "../../styled-components";
+import { DataContainer, Button, ButtonSpan } from "../../styled-components";
 
 export const Indicators = ({
   getAllData,
@@ -30,105 +28,45 @@ export const Indicators = ({
   return (
     <DataContainer>
       <ul style={{ marginBottom: "30px" }}>
-        <FlexContainer>
-          {dataSet ? (
-            <BsFillCheckCircleFill
-              style={{ marginRight: "3px", color: "green" }}
-            />
-          ) : (
-            <PuffLoader
-              color={color}
-              loading={loading}
-              css={override}
-              size={15}
-            />
-          )}
-          <ListItem className={dataSet ? "bold" : ""}>
-            Retreived Dataset ID
-          </ListItem>
-        </FlexContainer>
-        <FlexContainer>
-          {retrievedIds ? (
-            <BsFillCheckCircleFill
-              style={{ marginRight: "3px", color: "green" }}
-            />
-          ) : (
-            <PuffLoader
-              color={color}
-              loading={loading}
-              css={override}
-              size={15}
-            />
-          )}
-          <ListItem className={retrievedIds ? "bold" : ""}>
-            Retrieved Vehicle IDs
-          </ListItem>
-        </FlexContainer>
-        <FlexContainer>
-          {carDealers.length ? (
-            <BsFillCheckCircleFill
-              style={{ marginRight: "3px", color: "green" }}
-            />
-          ) : (
-            <PuffLoader
-              color={color}
-              loading={loading}
-              css={override}
-              size={15}
-            />
-          )}
-          <ListItem className={carDealers.length ? "bold" : ""}>
-            Retreived Dealer Names
-          </ListItem>
-        </FlexContainer>
-        <ListItem className={finalRequest.length ? "bold" : ""}>
-          {finalRequest.length ? (
-            <BsFillCheckCircleFill
-              style={{ marginRight: "3px", color: "green" }}
-            />
-          ) : (
-            <PuffLoader
-              color={color}
-              loading={loading}
-              css={override}
-              size={15}
-            />
-          )}
-          Data Constructed
-        </ListItem>
-        <ListItem className={answer.success ? "bold" : ""}>
-          {answer.success ? (
-            <BsFillCheckCircleFill
-              style={{ marginRight: "3px", color: "green" }}
-            />
-          ) : (
-            <PuffLoader
-              color={color}
-              loading={loading}
-              css={override}
-              size={15}
-            />
-          )}
-          Answer Posted Correctly
-        </ListItem>
-        <ListItem className={answer.totalMilliseconds ? "bold" : ""}>
-          {answer.totalMilliseconds ? (
-            <BsFillCheckCircleFill
-              style={{ marginRight: "3px", color: "green" }}
-            />
-          ) : (
-            <PuffLoader
-              color={color}
-              loading={loading}
-              css={override}
-              size={15}
-            />
-          )}
-          Answer Time:
-          {answer.totalMilliseconds
-            ? " " + answer.totalMilliseconds / 1000 + " seconds"
-            : " 0.000 seconds"}
-        </ListItem>
+        <DataSet
+          dataSet={dataSet}
+          override={override}
+          loading={loading}
+          color={color}
+        />
+        <VehicleIds
+          retrievedIds={retrievedIds}
+          override={override}
+          loading={loading}
+          color={color}
+        />
+        <CarDealers
+          carDealers={carDealers}
+          override={override}
+          loading={loading}
+          color={color}
+        />
+
+        <DataConstructed
+          finalRequest={finalRequest}
+          override={override}
+          loading={loading}
+          color={color}
+        />
+
+        <Answer
+          answer={answer}
+          override={override}
+          loading={loading}
+          color={color}
+        />
+
+        <AnswerTime
+          answer={answer}
+          override={override}
+          loading={loading}
+          color={color}
+        />
       </ul>
       <Button onClick={getAllData} disabled={loading}>
         <ButtonSpan>
