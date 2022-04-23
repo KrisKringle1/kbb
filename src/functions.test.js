@@ -1,12 +1,17 @@
 const functions = require("./functions");
 
-test("get dataset returns string", () => {
-  expect(functions.getDataSet()).toBeDefined();
+test("get dataset returns string", async () => {
+  expect(functions.getDataSet()).toBe("3pQPeWAl2gg");
 });
 
-test("get vehicle ids returns array", () => {
-  const dataSet = functions.getDataSet();
-  expect(functions.getVehicleIds(dataSet)).toBeDefined();
+test("get vehicle ids returns array", async () => {
+  const vehicleIds = [
+    1809895707, 1829628657, 253718412, 2081848578, 1365861952, 2146982858,
+    1223954998, 1032962395, 699215794,
+  ];
+  const ids = await functions.getVehicleIds("3pQPeWAl2gg");
+
+  expect(ids.vehicleIds).toEqual(vehicleIds);
 });
 
 test("dealer constructor is defined", () => {

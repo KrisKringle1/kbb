@@ -14,6 +14,12 @@ export const Header = ({
   finalRequest,
   carDealers,
 }) => {
+  console.log("data set ", dataSet);
+  console.log("car dealers", carDealers);
+  console.log("answer ", answer);
+  console.log("retrieved ids ", retrievedIds);
+  console.log("get all data ", getAllData);
+  console.log("final request ", finalRequest);
   return (
     <Heading>
       <HeaderContainer>
