@@ -1,7 +1,7 @@
 import React from "react";
 import { HeaderContainer, Title, Heading } from "../../styled-components";
 
-import { Indicators } from "./Indicators";
+import { IndicatorList } from "./IndicatorList";
 
 // Can be a string as well. Need to ensure each key-value pair ends with ;
 
@@ -19,7 +19,7 @@ export const Header = ({
       <HeaderContainer>
         <div>
           <Title>Kelly Blue Book</Title>
-          <Indicators
+          <IndicatorList
             getAllData={getAllData}
             answer={answer}
             dataSet={dataSet}

@@ -1,5 +1,5 @@
 import React from "react";
-import { FlexContainer, ListItem } from "../../styled-components";
+import { FlexContainer, ListItem } from "../../../styled-components";
 import { BsFillCheckCircleFill } from "react-icons/bs";
 import PuffLoader from "react-spinners/PuffLoader";
 

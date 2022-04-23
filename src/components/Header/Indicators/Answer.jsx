@@ -1,19 +1,17 @@
 import React from "react";
-import { FlexContainer, ListItem } from "../../styled-components";
+import { ListItem, FlexContainer } from "../../../styled-components";
 import { BsFillCheckCircleFill } from "react-icons/bs";
 import PuffLoader from "react-spinners/PuffLoader";
 
-export const DataSet = ({ dataSet, override, loading, color }) => {
-  return (
-    <FlexContainer>
-      {dataSet ? (
+export const Answer = ({ answer, loading, override, color }) => (
+  <FlexContainer>
+    <ListItem className={answer.success ? "bold" : ""}>
+      {answer.success ? (
         <BsFillCheckCircleFill style={{ marginRight: "3px", color: "green" }} />
       ) : (
         <PuffLoader color={color} loading={loading} css={override} size={15} />
       )}
-      <ListItem className={dataSet ? "bold" : ""}>
-        Retreived Dataset ID
-      </ListItem>
-    </FlexContainer>
-  );
-};
+      Answer Posted Correctly
+    </ListItem>
+  </FlexContainer>
+);

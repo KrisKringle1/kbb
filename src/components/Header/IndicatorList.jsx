@@ -1,15 +1,15 @@
 import React, { useState } from "react";
 import { css } from "@emotion/react";
-import { DataSet } from "./DataSet";
-import { VehicleIds } from "./VehicleIds";
-import { CarDealers } from "./CarDealers";
-import { DataConstructed } from "./DataConstructed";
-import { Answer } from "./Answer";
-import { AnswerTime } from "./AnswerTime";
+import { DataSet } from "./Indicators/DataSet";
+import { VehicleIds } from "./Indicators/VehicleIds";
+import { CarDealers } from "./Indicators/CarDealers";
+import { DataConstructed } from "./Indicators/DataConstructed";
+import { Answer } from "./Indicators/Answer";
+import { AnswerTime } from "./Indicators/AnswerTime";
 
 import { DataContainer, Button, ButtonSpan } from "../../styled-components";
 
-export const Indicators = ({
+export const IndicatorList = ({
   getAllData,
   answer,
   dataSet,
