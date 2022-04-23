@@ -8,8 +8,8 @@ const carDealers = [
   { dealerId: 1893924360, name: "House of Wheels" },
 ];
 
-describe("Inherits Props", () => {
-  it("accepts Data Set", () => {
+describe("Car Dealers", () => {
+  it("car dealers accepts props", () => {
     const wrapper = mount(<CarDealers carDealers={carDealers} />);
     expect(wrapper.props().carDealers).toEqual(carDealers);
   });
