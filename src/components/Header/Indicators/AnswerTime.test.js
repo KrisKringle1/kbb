@@ -1,10 +1,6 @@
 import React from "react";
-import { shallow, mount } from "enzyme";
-import App from "./App";
-
-it("renders without crashing", () => {
-  shallow(<App />);
-});
+import { mount } from "enzyme";
+import { AnswerTime } from "./AnswerTime";
 
 const answer = {
   success: true,
@@ -13,9 +9,12 @@ const answer = {
 };
 
 describe("Answer Spinner", () => {
-  it("App Receives and renders all props correctly", () => {
-    const wrapper = mount(<App answer={answer} />);
+  it("Received Congratulations message", () => {
+    const wrapper = mount(<AnswerTime answer={answer} />);
     expect(wrapper.props().answer.message).toEqual(answer.message);
+  });
+  it("Received success message", () => {
+    const wrapper = mount(<AnswerTime answer={answer} />);
     expect(wrapper.props().answer.success).toEqual(answer.success);
   });
 });

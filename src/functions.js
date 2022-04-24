@@ -52,13 +52,13 @@ const getVehicleInfo = async (vehicleId, dealerIds, dealers, dataSet) => {
   const res = await fetch(
     `http://api.coxauto-interview.com/api/${dataSet}/vehicles/${vehicleId}`
   );
-  const data = await res.json();
-  const dealer = await dealerConstructor(data, dealerIds, dataSet);
+  const car = await res.json();
+  const dealer = await dealerConstructor(car, dealerIds, dataSet);
   //if the dealer comes back with something, push it into the dealers array
   if (dealer) {
     dealers.push(dealer);
   }
-  return data;
+  return car;
 };
 
 //checks to see if the dealer has already been fetched, if it hasnt, it adds the dealer to the dealerIds object and then fetches dealer info
@@ -74,8 +74,8 @@ const getDealerInfo = async (dealerId, dataSet) => {
   const res = await fetch(
     `http://api.coxauto-interview.com/api/${dataSet}/dealers/${dealerId}`
   );
-  const data = await res.json();
-  return data;
+  const dealer = await res.json();
+  return dealer;
 };
 
 //constructs the final object in the proper format
