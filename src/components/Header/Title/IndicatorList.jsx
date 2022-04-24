@@ -1,13 +1,13 @@
 import React, { useState } from "react";
 import { css } from "@emotion/react";
-import { DataSet } from "./Indicators/DataSet/DataSet";
-import { VehicleIds } from "./VehicleIds/VehicleIds";
-import { CarDealers } from "./Indicators/CarDealers/CarDealers";
-import { DataConstructed } from "./Indicators/DataConstructed/DataConstructed";
-import { Answer } from "./Indicators/Answer/Answer";
-import { AnswerTime } from "./Indicators/AnswerTime/AnswerTime";
+import { DataSet } from "../Indicators/DataSet/DataSet";
+import { VehicleIds } from "../Indicators/VehicleIds/VehicleIds";
+import { CarDealers } from "../Indicators/CarDealers/CarDealers";
+import { DataConstructed } from "../Indicators/DataConstructed/DataConstructed";
+import { Answer } from "../Indicators/Answer/Answer";
+import { AnswerTime } from "../Indicators/AnswerTime/AnswerTime";
 
-import { DataContainer, Button, ButtonSpan } from "../../styled-components";
+import { DataContainer, Button, ButtonSpan } from "../../../styled-components";
 
 export const IndicatorList = ({
   getAllData,

@@ -5,7 +5,6 @@ import { AnswerTime } from "./AnswerTime";
 const answer = {
   success: true,
   message: "Congratulations.",
-  totalMilliseconds: 10000,
 };
 
 describe("Answer Spinner", () => {

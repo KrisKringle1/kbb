@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import { AppContainer } from "./styled-components";
-import { Header } from "./components/Header/Header";
+import { Header } from "./components/Header/Title/Header";
 import { DealersView } from "./components/Dealers/DealersView";
 import "./App.css";
 const functions = require("./functions");

@@ -1,5 +1,5 @@
 import React from "react";
-import { HeaderContainer, Title, Heading } from "../../styled-components";
+import { HeaderContainer, Title, Heading } from "../../../styled-components";
 
 import { IndicatorList } from "./IndicatorList";
 
