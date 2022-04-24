@@ -27,15 +27,6 @@ function App() {
     }
     setFetched(true);
     await functions.getDataSet().then((response) => setDataSet(response));
-    const vehicleIds = [
-      1809895707, 1829628657, 253718412, 2081848578, 1365861952, 2146982858,
-      1223954998, 1032962395, 699215794,
-    ];
-    const test = "3pQPeWAl2gg";
-
-    const batchRequst = await functions.batchRequest(vehicleIds, test);
-
-    console.log("batch request ", batchRequst);
   };
 
   /* data set is needed for the app to work

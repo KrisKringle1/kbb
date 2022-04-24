@@ -1,17 +1,17 @@
 import React from "react";
-import { FlexContainer, ListItem } from "../../../styled-components";
+import { ListItem, FlexContainer } from "../../../../styled-components";
 import { BsFillCheckCircleFill } from "react-icons/bs";
 import PuffLoader from "react-spinners/PuffLoader";
 
-export const DataConstructed = ({ finalRequest, loading, override, color }) => (
+export const Answer = ({ answer, loading, override, color }) => (
   <FlexContainer>
-    <ListItem className={finalRequest.length ? "bold" : ""}>
-      {finalRequest.length ? (
+    <ListItem className={answer.success ? "bold" : ""}>
+      {answer.success ? (
         <BsFillCheckCircleFill style={{ marginRight: "3px", color: "green" }} />
       ) : (
         <PuffLoader color={color} loading={loading} css={override} size={15} />
       )}
-      Data Constructed
+      Answer Posted Correctly
     </ListItem>
   </FlexContainer>
 );
