@@ -47,6 +47,7 @@ test("get dealer returns proper response", async () => {
 test("construction request is defined", () => {
   expect(functions.constructReq()).toBeDefined();
 });
+
 jest.setTimeout(30000);
 test("batch request worked as expected", async () => {
   const vehicleIds = [
