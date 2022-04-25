@@ -18,6 +18,7 @@ function App() {
 
   const getAllData = async () => {
     //resets data on 2nd fetch
+    //testing one tow three
     if (dataSet) {
       setDataSet(null);
       setFinalRequest([]);
