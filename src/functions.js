@@ -43,7 +43,7 @@ const batchRequest = async (vehicleIds, dataSet) => {
   //when the batching is complete, the request is immediately constructed and posted
   const finalPost = constructReq(dealers, cars);
   const answer = await postDataInfo(finalPost, dataSet);
-  return { dealers, cars, answer, request: finalPost };
+  return { dealers, answer, request: finalPost };
 };
 
 //gets the vehicle info and then adds it to the car array

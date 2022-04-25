@@ -12,7 +12,7 @@ function App() {
   const [dataSet, setDataSet] = useState(null);
   const [retrievedIds, setRetrievedIds] = useState(false);
   const [answer, setAnswer] = useState({});
-  const [cars, setCars] = useState([]);
+
   const [carDealers, setCarDealers] = useState([]);
   const isMounted = useRef(false);
 
@@ -23,7 +23,6 @@ function App() {
       setFinalRequest([]);
       setRetrievedIds(false);
       setAnswer({});
-      setCars([]);
       setCarDealers([]);
     }
     setFetched(true);
@@ -43,7 +42,6 @@ function App() {
         if (!res) return;
         setRetrievedIds(true);
         functions.batchRequest(res.vehicleIds, res.dataSet).then((response) => {
-          setCars(response.cars);
           setCarDealers(response.dealers);
           setAnswer(response.answer);
           setFinalRequest(response.request);
