@@ -2,6 +2,7 @@ import React from "react";
 import { shallow, mount } from "enzyme";
 import App from "./App";
 import { Header } from "./components/Header/Title/Header";
+import { DealersView } from "./components/Dealers/DealersView";
 
 it("renders without crashing", () => {
   shallow(<App />);
@@ -76,5 +77,12 @@ describe("Header Tests", () => {
     expect(wrapper.props().answer.success).toEqual(answer.success);
     expect(wrapper.props().carDealers).toEqual(carDealers);
     expect(wrapper.props().finalRequest).toEqual(finalRequest);
+  });
+});
+
+describe("Dealers View Tests", () => {
+  it("Receives props and renders properly", () => {
+    const wrapper = mount(<DealersView dealers={finalRequest} />);
+    expect(wrapper.props().dealers).toEqual(finalRequest);
   });
 });

@@ -69,7 +69,7 @@ function App() {
           loading={loading}
         />
 
-        <DealersView cars={cars} dealers={finalRequest} />
+        <DealersView dealers={finalRequest} />
       </AppContainer>
     </>
   );
