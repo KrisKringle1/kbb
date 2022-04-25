@@ -17,6 +17,7 @@ function App() {
   const isMounted = useRef(false);
 
   const getAllData = async () => {
+    //resets data on 2nd fetch
     if (dataSet) {
       setDataSet(null);
       setFinalRequest([]);

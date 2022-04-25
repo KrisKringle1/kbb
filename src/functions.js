@@ -79,7 +79,7 @@ const getDealerInfo = async (dealerId, dataSet) => {
 };
 
 //constructs the final object in the proper format
-const constructReq = (dealers, cars, returnArr = []) => {
+const constructReq = (dealers, cars, finalRequest = []) => {
   //dealer construction
   for (const index in dealers) {
     const dealer = dealers[index];
@@ -104,9 +104,9 @@ const constructReq = (dealers, cars, returnArr = []) => {
       }
     }
     //pushed the dealer object into the dealer array
-    returnArr.push(dealerObj);
+    finalRequest.push(dealerObj);
   }
-  return returnArr;
+  return finalRequest;
 };
 
 //takes the final dealers object from constructReq and dataSet and posts it to answer api
